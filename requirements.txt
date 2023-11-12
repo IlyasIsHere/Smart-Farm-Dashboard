@@ -1,0 +1,17 @@
+Software engineering project: Smart Farming Dashboard.
+
+Functional requirements:
+- The web app should have multiple users, and each user represents one farm.
+- When creating a new farm, the user will provide the geographic location of the farm.
+- Display the weather data of the farm using charts and graphs.
+- Display soil quality analysis of the type present in the farm location using charts.
+- Keep track of energy consumption over a period of time, and provide a report.
+- Alert farmers of weather changes, updates, or any relevant information.
+
+
+Non-functional requirements:
+- The app should have a secure user authentication system.
+- The queries response time is decent.
+- User-friendly interface.
+- Good security measures.
+- Maintainability (the code is easy to change, readable...).
