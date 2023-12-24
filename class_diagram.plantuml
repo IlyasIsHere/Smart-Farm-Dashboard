@@ -1,0 +1,84 @@
+@startuml
+
+class Farm {
+  - farmID : int
+  - name : string
+  - ownerName : string
+  - email : string
+  - phoneNum : string
+  - latitude : float
+  - longitude : float
+}
+
+class WeatherData {
+  - timestamp : time
+  - temperature : float
+  - precipitation : float
+  - windSpeed : float
+  - humidity : float
+}
+
+class SoilData {
+  - id : int
+  - timestamp : time
+  - pHLevel : float
+  - nutrientContent : float
+  - moistureLevel : float
+}
+
+class Crop {
+  - cropID : int
+  - cropType : string
+  - quantity : map
+}
+
+class Field {
+  - fieldID : int
+  - area : float
+  - longitude : float
+  - latitude : float
+  
+}
+
+class IoTSensor {
+  - sensorID : int
+  - sensorType
+}
+
+class Alert {
+  - alertID : int
+  - alertType : enum
+  - farm : Farm
+  - message : string
+  - timestamp : time
+}
+
+class ForumPost {
+  - postID : int
+  - content : string
+  - timestamp : time
+}
+
+class CommunityForum {
+  - forumID : int
+  - forumName : string
+  --
+  + createPost()
+  + viewPosts()
+  + participateInDiscussion()
+}
+
+Field "1..*" -- "0..*" Crop
+WeatherData -- WeatherAPI
+Field "1" -- "1" IoTSensor
+Crop "1" -- "1" WeatherData : bestWeatherConditions
+Crop "1" -- "1" SoilData : bestSoilConditions
+IoTSensor "1" -- "0..*" SoilData
+Farm "1" -- "0..*" Alert
+Farm "1" -- "1..*" Field
+Farm "1..*" -- "0..*" CommunityForum
+CommunityForum "1" -- "0..*" ForumPost
+
+
+
+@enduml
