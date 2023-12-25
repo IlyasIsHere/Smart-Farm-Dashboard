@@ -24,7 +24,7 @@ interface CropDAO {
   + getByID(id: int): Crop
   + save(crop: Crop): void
   + delete(id: int): void
-  + updateCropConditions(id: int): void
+  + updateCropConditions(id: int, newCropConditions: map): void
   + updateCropDistribution(id: int, newCropDistribution: map): void
   + getCropDistribution(id: int): map
   + getAll(): map

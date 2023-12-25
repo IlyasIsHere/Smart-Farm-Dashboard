@@ -43,8 +43,7 @@ class IoTSensor {
 
 class Alert {
   - alertID : int
-  - alertType : enum
-  - farm : Farm
+  - alertType : AlertEnum
   - message : string
   - timestamp : time
 }

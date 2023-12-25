@@ -16,6 +16,7 @@ CREATE TABLE Farm (
 -- Define the WeatherSoilData table
 CREATE TABLE WeatherSoilData (
   dataID INT PRIMARY KEY,
+  sensorID INT,
   timestamp TIMESTAMP,
   temperature FLOAT,
   precipitation FLOAT,
@@ -23,23 +24,18 @@ CREATE TABLE WeatherSoilData (
   humidity FLOAT,
   pHLevel FLOAT,
   nutrientContent FLOAT,
-  moistureLevel FLOAT
+  moistureLevel FLOAT,
+  FOREIGN KEY (sensorID) REFERENCES IoTSensor(sensorID)
 );
 
 -- Define the Crop table
 CREATE TABLE Crop (
   cropID INT PRIMARY KEY,
-  cropType VARCHAR(255)
+  cropType VARCHAR(255),
+  cropBestCondition INT,
+  FOREIGN KEY (cropBestCondition) REFERENCES WeatherSoilData(dataID)
 );
 
--- Define the Crops' best conditions table
-CREATE TABLE CropsBestConditions (
-  cropID INT,
-  dataID INT,
-  PRIMARY KEY (cropID, dataID),
-  FOREIGN KEY (cropID) REFERENCES Crop(cropID),
-  FOREIGN KEY (dataID) REFERENCES WeatherSoilData(dataID)
-);
 
 -- Define the Field table
 CREATE TABLE Field (
@@ -67,15 +63,6 @@ CREATE TABLE IoTSensor (
   FOREIGN KEY (fieldID) REFERENCES Field(fieldID)
 );
 
--- Define the IoTSensorData table
-CREATE TABLE IoTSensorData (
-  sensorID INT,
-  dataID INT,
-  PRIMARY KEY (sensorID, dataID),
-  FOREIGN KEY (sensorID) REFERENCES IoTSensor(sensorID),
-  FOREIGN KEY (dataID) REFERENCES WeatherSoilData(dataID)
-);
-
 -- Define the CommunityForum table
 CREATE TABLE CommunityForum (
   forumID INT PRIMARY KEY,
@@ -88,11 +75,13 @@ CREATE TABLE CommunityForum (
 CREATE TABLE ForumPost (
   postID INT PRIMARY KEY,
   content TEXT,
-  timestamp TIMESTAMP
+  timestamp TIMESTAMP,
+  forumID INT,
+  FOREIGN KEY (forumID) REFERENCES CommunityForum(forumID)
 );
 
 -- Define the CommunityForumMembers table
-CREATE TABLE CommunityForumCreator (
+CREATE TABLE CommunityForumMembers (
   forumID INT,
   farmID INT,
   PRIMARY KEY (forumID, farmID),
