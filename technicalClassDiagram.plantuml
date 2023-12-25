@@ -1,0 +1,161 @@
+@startuml
+
+interface FarmDAO {
+  + getByID(id: int): Farm
+  + save(farm: Farm): void
+  + delete(id: int): void
+  + updateFarmName(farm: Farm, name: string): void
+  + updateFarmLocalisation(id: int): void
+  + updateFarmOwner(id: int): 
+  + getAll(): map
+}
+
+interface FieldDAO {
+  + getByID(id: int): Field
+  + save(field: Field): void
+  + delete(id: int): void
+  + getFieldCrops(id: int): map
+  + updateFieldCrops(id: int, cropsArea: map): void
+  + updateFieldArea(id: int, newArea: float): void
+  + getAll(): map
+}
+
+interface CropDAO {
+  + getByID(id: int): Crop
+  + save(crop: Crop): void
+  + delete(id: int): void
+  + updateCropConditions(id: int): void
+  + updateCropDistribution(id: int, newCropDistribution: map): void
+  + getCropDistribution(id: int): map
+  + getAll(): map
+}
+
+interface CommunityForumDAO {
+  + getByID(id: int): CommunityForum
+  + save(forum: CommunityForum): void
+  + delete(id: int): void
+  + addFarm(farmId: int): void
+  + removeFarm(farmId: int): void
+  + getAll(): map
+}
+
+class SingletonWeatherAPI {
+  - instance: SingletonWeatherAPI
+  - SingletonWeatherAPI()
+  + getInstance(): SingletonWeatherAPI
+  + fetchWeatherData(): map
+}
+
+class dbConnection {
+  - instance: dbConnection
+  - dbConnection()
+  + getInstance(): dbConnection
+}
+
+class Farm {
+  - farmID: int
+  - name: string
+  - ownerName: string
+  - email: string
+  - phoneNum: string
+  - latitude: float
+  - longitude: float
+}
+
+class WeatherSoilData {
+  - id: int
+  - timestamp: time
+  - temperature: float
+  - precipitation: float
+  - windSpeed: float
+  - humidity: float
+  - pHLevel: float
+  - nutrientContent: float
+  - moistureLevel: float
+}
+
+class Crop {
+  - cropID: int
+  - cropType: string
+  - quantity: map
+}
+
+class Field {
+  - fieldID: int
+  - area: float
+  - longitude: float
+  - latitude: float
+}
+
+class IoTSensor {
+  - sensorID: int
+  - sensorType
+}
+
+class Alert {
+  - alertID: int
+  - alertType: AlertEnum
+  - farm: Farm
+  - message: string
+  - timestamp: time
+}
+
+enum AlertEnum {
+  + WARNING
+  + ERROR
+  + FATAL
+  + NOTIFICATION
+}
+
+class ForumPost {
+  - postID: int
+  - content: string
+  - timestamp: time
+}
+
+class CommunityForum {
+  - forumID: int
+  - forumName: string
+  --
+  + createPost(postContent: string): ForumPost
+  + viewPosts(): List<ForumPost>
+  + participateInDiscussion(postID: int): void
+}
+
+interface DAOFactory {
+  createDAO(Class<T> entityType): GenericDAO<T>
+}
+
+class ConcreteDAOFactory {
+  + createDAO(Class<T> entityType): GenericDAO<T>
+}
+
+DAOFactory <|-- ConcreteDAOFactory
+
+DAOFactory -- CommunityForumDAOImpl
+DAOFactory -- CropDAOImpl
+DAOFactory --FieldDAOImpl
+DAOFactory -- FarmDAOImpl
+
+Field "1..*" -- "0..*" Crop
+WeatherSoilData -- SingletonWeatherAPI
+Field "1" -- "1" IoTSensor
+Crop "1" -- "1" WeatherSoilData : bestConditions
+IoTSensor "1" -- "0..*" WeatherSoilData
+Farm "1" -- "0..*" Alert
+Farm "1" -- "1..*" Field
+Farm "1..*" -- "0..*" CommunityForum : participate
+CommunityForum "1" -- "0..*" ForumPost : contains
+ForumPost "0..*" -- "1" Farm
+AlertEnum -- Alert
+FarmDAOImpl --|> FarmDAO
+FieldDAOImpl --|> FieldDAO
+CropDAOImpl --|> CropDAO
+CommunityForumDAOImpl --|> CommunityForumDAO
+
+FarmDAOImpl -- Farm
+FieldDAOImpl -- Field
+CropDAOImpl -- Crop
+CommunityForumDAOImpl -- CommunityForum
+
+@enduml
