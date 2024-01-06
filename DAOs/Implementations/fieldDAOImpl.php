@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . '/../Interfaces/fieldDAO.php');
+require_once(__DIR__ . '/../../Models/field.php');
 
 class FieldDAO implements FieldDAOInterface {
     private $db;

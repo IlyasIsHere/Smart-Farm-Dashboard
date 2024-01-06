@@ -38,7 +38,9 @@ class DatabaseConnection {
     private function __clone() {}
 
     // Prevent unserialization of the instance
-    private function __wakeup() {}
+    public function __wakeup() {
+        throw new Exception("Unserialization of DatabaseConnection instance is not allowed.");
+    }
 }
 
 ?>

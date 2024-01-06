@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . '/../Interfaces/cropDAO.php');
+require_once(__DIR__ . '/../../Models/crop.php');
 
 class CropDAO implements CropDAOInterface {
     private $db;

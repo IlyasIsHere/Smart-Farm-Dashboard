@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . '/../Interfaces/communityForumDAO.php');
+require_once(__DIR__ . '/../../Models/communityForum.php');
 
 class CommunityForumDAO implements CommunityForumDAOInterface {
     private $db;

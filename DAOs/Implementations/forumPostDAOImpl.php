@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . '/../Interfaces/forumPostDAO.php');
+require_once(__DIR__ . '/../../Models/forumPost.php');
 
 class ForumPostDAO implements ForumPostDAOInterface {
     private $db;

@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . '/../Interfaces/weatherSoilDataDAO.php');
+require_once(__DIR__ . '/../../Models/weatherSoilData.php');
 
 class WeatherSoilDataDAO implements WeatherSoilDataDAOInterface {
     private $db;

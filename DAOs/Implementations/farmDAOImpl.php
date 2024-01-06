@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . '/../Interfaces/farmDAO.php');
+require_once(__DIR__ . '/../../Models/farm.php');
 
 class FarmDAO implements FarmDAOInterface {
     private $db;
