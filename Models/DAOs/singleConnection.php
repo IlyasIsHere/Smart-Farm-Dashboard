@@ -6,7 +6,7 @@ class DatabaseConnection {
 
     // Private constructor to prevent instantiation
     private function __construct() {
-        $host = "localhost";
+        $host = getenv('HOST') ? getenv('HOST') : 'localhost';
         $username = "root";
         $password = "";
         $database = "smartFarm";
