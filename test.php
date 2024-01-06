@@ -1,10 +1,9 @@
 <?php
-require_once 'singleConnection.php';
-require_once 'DAOs/Implementations/farmDAOImpl.php';
+require_once 'DAOs/DAOFactory.php';
 
-$dbConnection = DatabaseConnection::getInstance();
+$daoFactory = DAOFactory::getInstance();
 
-$farmDAO = new FarmDAO($dbConnection);
+$farmDAO = $daoFactory->createFarmDAO();
 
 $farmID = 1;
 
