@@ -55,13 +55,46 @@ class FieldDAO implements FieldDAOInterface {
 
     // Get crops associated with a field by ID
     public function getFieldCrops($fieldID) {
-        // TO DO: Implement logic to get crops associated with the field
-        // Return a map
+        $stmt = $this->db->prepare("SELECT cropID, area FROM CropsDistributionPerField WHERE fieldID = ?");
+        $stmt->bind_param("i", $fieldID);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $cropsMap = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $cropsMap[$row['cropID']] = $row['area'];
+        }
+
+        return $cropsMap;
     }
+
 
     // Update crops associated with a field by ID
     public function updateFieldCrops($fieldID, $cropsArea) {
-        // TO DO: Implement logic to update crops associated with the field
+        $this->db->begin_transaction();
+
+        try {
+            // Update or insert new records
+            $stmt = $this->db->prepare("INSERT INTO CropsDistributionPerField (cropID, fieldID, area) VALUES (?, ?, ?)
+                ON DUPLICATE KEY UPDATE area = VALUES(area)");
+
+            foreach ($cropsArea as $cropID => $area) {
+                $stmt->bind_param("iid", $cropID, $fieldID, $area);
+                $stmt->execute();
+            }
+
+            $this->db->commit();
+
+            return true;
+        } catch (Exception $e) {
+            $this->db->rollback();
+
+            // TO DO: Handle error
+
+            return false;
+        }
     }
 
     // Update field area by ID
@@ -91,6 +124,5 @@ class FieldDAO implements FieldDAOInterface {
         return $fields;
     }
 }
-
 
 ?>
