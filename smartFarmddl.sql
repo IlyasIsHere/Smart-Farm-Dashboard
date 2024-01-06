@@ -42,7 +42,9 @@ CREATE TABLE Field (
   fieldID INT PRIMARY KEY,
   area FLOAT,
   longitude FLOAT,
-  latitude FLOAT
+  latitude FLOAT,
+  farmID INT,
+  FOREIGN KEY (farmID) REFERENCES Farm(farmID) ON DELETE CASCADE
 );
 
 -- Define the Crops distribution per Field table

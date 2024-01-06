@@ -5,13 +5,15 @@ class Field {
   public $area;
   public $longitude;
   public $latitude;
+  public $farmID;
 
   // Constructor
-  public function __construct($fieldID, $area, $longitude, $latitude) {
+  public function __construct($fieldID, $area, $longitude, $latitude, $farmID) {
     $this->fieldID = $fieldID;
     $this->area = $area;
     $this->longitude = $longitude;
     $this->latitude = $latitude;
+    $this->farmID = $farmID;
   }
 
   // Getters
@@ -31,6 +33,10 @@ class Field {
     return $this->latitude;
   }
 
+  public function getFarmID() {
+    return $this->farmID;
+  }
+
   // Setters
   public function setFieldID($fieldID) {
     $this->fieldID = $fieldID;
@@ -46,6 +52,10 @@ class Field {
 
   public function setLatitude($latitude) {
     $this->latitude = $latitude;
+  }
+
+  public function setFarmID($farmID) {
+    $this->farmID = $farmID;
   }
 }
 
