@@ -47,49 +47,49 @@
 
             <ul class="nav">
                 <li>
-                    <a href="dashboard.php">
+                    <a href="/Views/dashboard.php">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="user.php">
+                    <a href="/Views/user.php">
                         <i class="pe-7s-user"></i>
                         <p>User Profile</p>
                     </a>
                 </li>
                 <li>
-                    <a href="fields.php">
+                    <a href="/Views/fields.php">
                         <i class="pe-7s-note2"></i>
                         <p>Fields</p>
                     </a>
                 </li>
                 <li>
-                    <a href="typography.php">
+                    <a href="/Views/typography.php">
                         <i class="pe-7s-news-paper"></i>
                         <p>Typography</p>
                     </a>
                 </li>
                 <li>
-                    <a href="icons.php">
+                    <a href="/Views/icons.php">
                         <i class="pe-7s-science"></i>
                         <p>Icons</p>
                     </a>
                 </li>
                 <li>
-                    <a href="maps.php">
+                    <a href="/Views/maps.php">
                         <i class="pe-7s-map-marker"></i>
                         <p>Maps</p>
                     </a>
                 </li>
                 <li>
-                    <a href="notifications.php">
+                    <a href="/Views/notifications.php">
                         <i class="pe-7s-bell"></i>
                         <p>Notifications</p>
                     </a>
                 </li>
 				<li class="active-pro">
-                    <a href="upgrade.php">
+                    <a href="/Views/upgrade.php">
                         <i class="pe-7s-rocket"></i>
                         <p>Upgrade to PRO</p>
                     </a>
