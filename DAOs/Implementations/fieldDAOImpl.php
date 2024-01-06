@@ -39,7 +39,57 @@ class FieldDAO implements FieldDAOInterface {
         }
     }
 
-    // TO DO: Additional methods
+    // Delete a field by ID
+    public function deleteField($fieldID) {
+        $stmt = $this->db->prepare("DELETE FROM Field WHERE fieldID = ?");
+        $stmt->bind_param("i", $fieldID);
+
+        if ($stmt->execute()) {
+            // Successfully deleted
+            return true;
+        } else {
+            // TO DO: Handle error
+            return false;
+        }
+    }
+
+    // Get crops associated with a field by ID
+    public function getFieldCrops($fieldID) {
+        // TO DO: Implement logic to get crops associated with the field
+        // Return a map
+    }
+
+    // Update crops associated with a field by ID
+    public function updateFieldCrops($fieldID, $cropsArea) {
+        // TO DO: Implement logic to update crops associated with the field
+    }
+
+    // Update field area by ID
+    public function updateFieldArea($fieldID, $newArea) {
+        $stmt = $this->db->prepare("UPDATE Field SET area = ? WHERE fieldID = ?");
+        $stmt->bind_param("di", $newArea, $fieldID);
+
+        if ($stmt->execute()) {
+            // Successfully updated
+            return true;
+        } else {
+            // TO DO: Handle error
+            return false;
+        }
+    }
+
+    // Get all fields
+    public function getAllFields() {
+        $result = $this->db->query("SELECT * FROM Field");
+
+        $fields = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $fields[] = new Field($row['fieldID'], $row['area'], $row['longitude'], $row['latitude'], $row['farmID']);
+        }
+
+        return $fields;
+    }
 }
 
 

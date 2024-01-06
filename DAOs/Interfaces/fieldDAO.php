@@ -7,7 +7,20 @@ interface FieldDAOInterface {
     // Get field by ID
     public function getFieldByID($fieldID);
 
-    // TO DO: Additional methods
+    // Delete a field by ID
+    public function deleteField($fieldID);
+
+    // Get crops associated with a field by ID
+    public function getFieldCrops($fieldID);
+
+    // Update crops associated with a field by ID
+    public function updateFieldCrops($fieldID, $cropsArea);
+
+    // Update field area by ID
+    public function updateFieldArea($fieldID, $newArea);
+
+    // Get all fields
+    public function getAllFields();
 }
 
 ?>
