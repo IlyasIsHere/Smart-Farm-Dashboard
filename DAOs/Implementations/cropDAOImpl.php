@@ -39,7 +39,49 @@ class CropDAO implements CropDAOInterface {
         }
     }
 
-    // TO DO: Additional methods
+    // Delete a crop by ID
+    public function deleteCrop($cropID) {
+        $stmt = $this->db->prepare("DELETE FROM Crop WHERE cropID = ?");
+        $stmt->bind_param("i", $cropID);
+
+        if ($stmt->execute()) {
+            // Successfully deleted
+            return true;
+        } else {
+            // TO DO: Handle error
+
+            return false;
+        }
+    }
+
+    // Update crop conditions by ID
+    public function updateCropConditions($cropID, $newCropConditions) {
+        // TO DO: Implement logic
+    }
+
+    // Update crop distribution by ID
+    public function updateCropDistribution($cropID, $newCropDistribution) {
+        // TO DO: Implement logic
+    }
+
+    // Get crop distribution by ID
+    public function getCropDistribution($cropID) {
+        // TO DO: Implement logic to get crop distribution
+        // Return a map
+    }
+
+    // Get all crops
+    public function getAllCrops() {
+        $result = $this->db->query("SELECT * FROM Crop");
+
+        $crops = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $crops[] = new Crop($row['cropID'], $row['cropType'], $row['cropBestCondition']);
+        }
+
+        return $crops;
+    }
 }
 
 ?>
