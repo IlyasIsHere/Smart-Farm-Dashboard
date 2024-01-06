@@ -1,5 +1,5 @@
 <?php
-require_once 'DAOs/DAOFactory.php';
+require_once 'Models/DAOs/DAOFactory.php';
 
 $daoFactory = DAOFactory::getInstance();
 
