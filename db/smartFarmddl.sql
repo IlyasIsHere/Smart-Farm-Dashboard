@@ -11,7 +11,25 @@ CREATE TABLE Farm (
   phoneNum VARCHAR(20),
   latitude FLOAT,
   longitude FLOAT
-);
+) ENGINE=InnoDB;
+
+-- Define the Field table
+CREATE TABLE Field (
+  fieldID INT PRIMARY KEY,
+  area FLOAT,
+  longitude FLOAT,
+  latitude FLOAT,
+  farmID INT,
+  FOREIGN KEY (farmID) REFERENCES Farm(farmID) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- Define the IoTSensor table
+CREATE TABLE IoTSensor (
+  sensorID INT PRIMARY KEY,
+  sensorType VARCHAR(255),
+  fieldID INT,
+  FOREIGN KEY (fieldID) REFERENCES Field(fieldID)
+) ENGINE=InnoDB;
 
 -- Define the WeatherSoilData table
 CREATE TABLE WeatherSoilData (
@@ -26,7 +44,7 @@ CREATE TABLE WeatherSoilData (
   nutrientContent FLOAT,
   moistureLevel FLOAT,
   FOREIGN KEY (sensorID) REFERENCES IoTSensor(sensorID)
-);
+) ENGINE=InnoDB;
 
 -- Define the Crop table
 CREATE TABLE Crop (
@@ -34,18 +52,9 @@ CREATE TABLE Crop (
   cropType VARCHAR(255),
   cropBestCondition INT,
   FOREIGN KEY (cropBestCondition) REFERENCES WeatherSoilData(dataID)
-);
+) ENGINE=InnoDB;
 
 
--- Define the Field table
-CREATE TABLE Field (
-  fieldID INT PRIMARY KEY,
-  area FLOAT,
-  longitude FLOAT,
-  latitude FLOAT,
-  farmID INT,
-  FOREIGN KEY (farmID) REFERENCES Farm(farmID) ON DELETE CASCADE
-);
 
 -- Define the Crops distribution per Field table
 CREATE TABLE CropsDistributionPerField (
@@ -55,15 +64,8 @@ CREATE TABLE CropsDistributionPerField (
   PRIMARY KEY (cropID, fieldID),
   FOREIGN KEY (cropID) REFERENCES Crop(cropID),
   FOREIGN KEY (fieldID) REFERENCES Field(fieldID)
-);
+) ENGINE=InnoDB;
 
--- Define the IoTSensor table
-CREATE TABLE IoTSensor (
-  sensorID INT PRIMARY KEY,
-  sensorType VARCHAR(255),
-  fieldID INT,
-  FOREIGN KEY (fieldID) REFERENCES Field(fieldID)
-);
 
 -- Define the CommunityForum table
 CREATE TABLE CommunityForum (
@@ -71,7 +73,7 @@ CREATE TABLE CommunityForum (
   forumName VARCHAR(255),
   farmID INT,
   FOREIGN KEY (farmID) REFERENCES Farm(farmID)
-);
+) ENGINE=InnoDB;
 
 -- Define the ForumPost table
 CREATE TABLE ForumPost (
@@ -80,7 +82,7 @@ CREATE TABLE ForumPost (
   timestamp TIMESTAMP,
   forumID INT,
   FOREIGN KEY (forumID) REFERENCES CommunityForum(forumID)
-);
+) ENGINE=InnoDB;
 
 -- Define the CommunityForumMembers table
 CREATE TABLE CommunityForumMembers (
@@ -89,4 +91,4 @@ CREATE TABLE CommunityForumMembers (
   PRIMARY KEY (forumID, farmID),
   FOREIGN KEY (forumID) REFERENCES CommunityForum(forumID),
   FOREIGN KEY (farmID) REFERENCES Farm(farmID)
-);
+) ENGINE=InnoDB;
