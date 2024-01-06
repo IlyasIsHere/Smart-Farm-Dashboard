@@ -1,14 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-
-    <?php
-        $viewsPath = $_SERVER['DOCUMENT_ROOT'] . '/Views';
-        echo $viewsPath;
-    ?>
-
 	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="<?= $viewsPath ?>/assets/img/favicon.ico">
+	<link rel="icon" type="image/png" href="/Views/assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title>Light Bootstrap Dashboard by Creative Tim</title>
@@ -17,28 +11,26 @@
     <meta name="viewport" content="width=device-width" />
 
     <!-- Bootstrap core CSS     -->
-    <link href="<?= $viewsPath?>/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Views/assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
-    <link href="<?= $viewsPath ?>/assets/css/animate.min.css" rel="stylesheet"/>
+    <link href="/Views/assets/css/animate.min.css" rel="stylesheet"/>
 
     <!--  Light Bootstrap Table core CSS    -->
-    <link href="<?= $viewsPath ?>/assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
-
+    <link href="/Views/assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="<?= $viewsPath ?>/assets/css/demo.css" rel="stylesheet" />
-
+    <link href="/Views/assets/css/demo.css" rel="stylesheet" />
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link href="<?= $viewsPath ?> /assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="Views/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 </head>
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="<?= $viewsPath ?> /assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="purple" data-image="Views/assets/img/sidebar-5.jpg">
 
     <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
@@ -324,23 +316,23 @@
 </body>
 
     <!--   Core JS Files   -->
-    <script src="<?= $viewsPath ?>/assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
-	<script src="<?= $viewsPath ?>/assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="Views/assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+	<script src="Views/assets/js/bootstrap.min.js" type="text/javascript"></script>
 
 	<!--  Charts Plugin -->
-	<script src="<?= $viewsPath ?>/assets/js/chartist.min.js"></script>
+	<script src="Views/assets/js/chartist.min.js"></script>
 
     <!--  Notifications Plugin    -->
-    <script src="<?= $viewsPath ?>/assets/js/bootstrap-notify.js"></script>
+    <script src="Views/assets/js/bootstrap-notify.js"></script>
 
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-	<script src="<?= $viewsPath ?>/assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+	<script src="Views/assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="<?= $viewsPath ?>/assets/js/demo.js"></script>
+	<script src="Views/assets/js/demo.js"></script>
 
 
 </html>
