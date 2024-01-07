@@ -10,7 +10,6 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-
     <!-- Bootstrap core CSS     -->
     <link href="/Views/assets/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -20,10 +19,8 @@
     <!--  Light Bootstrap Table core CSS    -->
     <link href="/Views/assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
 
-
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="/Views/assets/css/demo.css" rel="stylesheet" />
-
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -35,12 +32,8 @@
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="/Views/assets/img/sidebar-5.jpg">
 
-    <!--
+    <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-        Tip 2: you can also add an image using data-image tag
-
-    -->
 
     	<div class="sidebar-wrapper">
             <div class="logo">
@@ -98,7 +91,7 @@
                         <p>Notifications</p>
                     </a>
                 </li>
-				<li class="active active-pro">
+				<li class="active-pro">
                     <a href="/Views/upgrade.php">
                         <i class="pe-7s-rocket"></i>
                         <p>Upgrade to PRO</p>
@@ -118,7 +111,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Upgrade</a>
+                    <a class="navbar-brand" href="#">Table List</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -189,85 +182,88 @@
             </div>
         </nav>
 
-
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-					<div class="col-md-8 col-md-offset-2">
+                    <div class="col-md-12">
                         <div class="card">
-                            <div class="header text-center">
-                                <h4 class="title">Light Bootstrap Dashboard PRO</h4>
-                                <p class="category">Are you looking for more components? Please check our Premium Version of Light Bootstrap Dashboard.</p>
-								<br>
+                            <div class="header">
+                                <h4 class="title">Crops</h4>
+                                <p class="category">Detailed information.</p>
                             </div>
-                            <div class="content table-responsive table-full-width table-upgrade">
-                                <table class="table">
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
                                     <thead>
-                                        <th></th>
-                                    	<th class="text-center">Free</th>
-                                    	<th class="text-center">PRO</th>
+                                        <th>Crop type</th>
+                                        <th>Fields</th>
+                                        <th>Total Area (m²)</th>
+                                        <th>Temperature (°C)</th>
+                                        <th>Precipitation (mm)</th>
+                                        <th>Wind Speed (m/s)</th>
+                                        <th>Humidity (%)</th>
+                                        <th>pH Level</th>
+                                        <th>Nutrient Content (ppm)</th>
+                                        <th>Moisture Level (%)</th>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                        	<td>Components</td>
-                                        	<td>16</td>
-                                        	<td>115+</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>Plugins</td>
-                                        	<td>4</td>
-                                        	<td>14+</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>Example Pages</td>
-                                        	<td>4</td>
-                                        	<td>22+</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>Documentation</td>
-                                        	<td><i class="fa fa-times text-danger"></i></td>
-                                        	<td><i class="fa fa-check text-success"></td>
-                                        </tr>
-                                        <tr>
-                                        	<td>SASS Files</td>
-											<td><i class="fa fa-times text-danger"></i></td>
-                                        	<td><i class="fa fa-check text-success"></td>
-                                        </tr>
-                                        <tr>
-                                        	<td>Login/Register/Lock Pages</td>
-											<td><i class="fa fa-times text-danger"></i></td>
-                                        	<td><i class="fa fa-check text-success"></td>
-                                        </tr>
-										<tr>
-                                        	<td>Premium Support</td>
-											<td><i class="fa fa-times text-danger"></i></td>
-                                        	<td><i class="fa fa-check text-success"></td>
-                                        </tr>
-										<tr>
-                                        	<td></td>
-											<td>Free</td>
-                                        	<td>Just $39</td>
-                                        </tr>
-										<tr>
-											<td></td>
-											<td>
-												<a href="#" class="btn btn-round btn-fill btn-default disabled">Current Version</a>
-											</td>
-											<td>
-												<a target="_blank" href="http://www.creative-tim.com/product/light-bootstrap-dashboard-pro/?ref=lbdupgrade" class="btn btn-round btn-fill btn-info">Upgrade to PRO</a>
-											</td>
-										</tr>
+                                        <?php foreach ($cropInfoMap as $cropID => $cropInfo): ?>
+                                            <tr>
+                                                <td><?= $cropInfo['cropType'] ?></td>
+                                                <td><?= implode(', ', $cropInfo['fields']) ?></td>
+                                                <td><?= $cropInfo['area'] ?></td>
+                                                <td><?= $cropInfo['temperature'] ?></td>
+                                                <td><?= $cropInfo['precipitation'] ?></td>
+                                                <td><?= $cropInfo['windSpeed'] ?></td>
+                                                <td><?= $cropInfo['humidity'] ?></td>
+                                                <td><?= $cropInfo['pHLevel'] ?></td>
+                                                <td><?= $cropInfo['nutrientContent'] ?></td>
+                                                <td><?= $cropInfo['moistureLevel'] ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
 
                             </div>
                         </div>
                     </div>
-                </div>
 
+
+                    <div class="col-md-12">
+                        <div class="card card-plain">
+                            <div class="header">
+                                <h4 class="title">Crops Distibution Per Field</h4>
+                                <p class="category">The table below shows the distribution of crops per each field in the farm.</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <th>Crop type</th>
+                                    	<th>field ID</th>
+                                    	<th>Area</th>
+                                        <th>Estimated quantity</th>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($cropTypeFieldsMap as $cropType => $fieldsInfo): ?>
+                                            <?php foreach ($fieldsInfo as $fieldInfo): ?>
+                                                <tr>
+                                                    <td><?php echo $cropType; ?></td>
+                                                    <td><?php echo $fieldInfo['fieldID']; ?></td>
+                                                    <td><?php echo $fieldInfo['area']; ?></td>
+                                                    <td><?php echo "Calculate estimated quantity here"; ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
         </div>
-
 
         <footer class="footer">
             <div class="container-fluid">
@@ -301,6 +297,7 @@
             </div>
         </footer>
 
+
     </div>
 </div>
 
@@ -325,5 +322,6 @@
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="/Views/assets/js/demo.js"></script>
+
 
 </html>

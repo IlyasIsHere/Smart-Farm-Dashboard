@@ -42,7 +42,7 @@
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text">
-                    Creative Tim
+                    Farm Name
                 </a>
             </div>
 
@@ -63,6 +63,12 @@
                     <a href="/Views/fields.php">
                         <i class="pe-7s-note2"></i>
                         <p>Fields</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Views/crops.php">
+                        <i class="pe-7s-note2"></i>
+                        <p>Crops</p>
                     </a>
                 </li>
                 <li>

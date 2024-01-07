@@ -10,6 +10,9 @@ interface CropDAOInterface {
     // Delete a crop by ID
     public function deleteCrop($cropID);
 
+    // Get crop conditions by ID
+    public function getCropConditions($cropID);
+
     // Update crop conditions by ID
     public function updateCropConditions($cropID, $newCropConditions);
 

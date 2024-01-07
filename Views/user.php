@@ -41,7 +41,7 @@
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text">
-                    Creative Tim
+                    Farm Name
                 </a>
             </div>
 
@@ -62,6 +62,12 @@
                     <a href="/Views/fields.php">
                         <i class="pe-7s-note2"></i>
                         <p>Fields</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Views/crops.php">
+                        <i class="pe-7s-note2"></i>
+                        <p>Crops</p>
                     </a>
                 </li>
                 <li>
@@ -194,19 +200,19 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Company (disabled)</label>
-                                                <input type="text" class="form-control" disabled placeholder="Company" value="Creative Code Inc.">
+                                                <input type="text" class="form-control" disabled placeholder="Company" value="<?php echo $farm->getName() ?>.Inc">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Username</label>
-                                                <input type="text" class="form-control" placeholder="Username" value="michael23">
+                                                <input type="text" class="form-control" placeholder="Username" value="<?php echo $farm->getName() ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" placeholder="Email">
+                                                <input type="email" class="form-control" placeholder="<?php echo $farm->getEmail() ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -215,13 +221,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>First Name</label>
-                                                <input type="text" class="form-control" placeholder="Company" value="Mike">
+                                                <input type="text" class="form-control" placeholder="Company" value="<?php echo explode(' ', $farm->getOwnerName())[0] ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Last Name</label>
-                                                <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                                                <input type="text" class="form-control" placeholder="Last Name" value="<?php echo explode(' ', $farm->getOwnerName())[1] ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -239,13 +245,13 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>City</label>
-                                                <input type="text" class="form-control" placeholder="City" value="Mike">
+                                                <input type="text" class="form-control" placeholder="City" value="Eljadida">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Country</label>
-                                                <input type="text" class="form-control" placeholder="Country" value="Andrew">
+                                                <input type="text" class="form-control" placeholder="Country" value="Morocco">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -260,7 +266,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>About Me</label>
-                                                <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lorem ipsum abla samar takaji nosotros</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -279,17 +285,14 @@
                             <div class="content">
                                 <div class="author">
                                      <a href="#">
-                                    <img class="avatar border-gray" src="/Views/assets/img/faces/face-3.jpg" alt="..."/>
+                                    <img class="avatar border-gray" src="/Views/assets/img/default-avatar.png" alt="..."/>
 
-                                      <h4 class="title">Mike Andrew<br />
-                                         <small>michael24</small>
+                                      <h4 class="title"><?php echo $farm->getOwnerName() ?><br />
+                                         <small><?php echo $farm->getName() ?></small>
                                       </h4>
                                     </a>
                                 </div>
-                                <p class="description text-center"> "Lamborghini Mercy <br>
-                                                    Your chick she so thirsty <br>
-                                                    I'm in that two seat Lambo"
-                                </p>
+                                <p class="description text-center">"Lorem ipsum abla samar takaji nosotros"</p>
                             </div>
                             <hr>
                             <div class="text-center">

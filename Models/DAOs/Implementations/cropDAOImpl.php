@@ -56,6 +56,45 @@ class CropDAO implements CropDAOInterface {
         }
     }
 
+    // Helper method to get weather and soil data by condition ID
+    private function getWeatherSoilDataByConditionID($conditionID) {
+        $stmt = $this->db->prepare("SELECT * FROM WeatherSoilData WHERE dataID = ?");
+        $stmt->bind_param("i", $conditionID);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $weatherSoilData = [];
+
+        while ($row = $result->fetch_assoc()) {
+            $weatherSoilData[] = new WeatherSoilData(
+                $row['dataID'], $row['sensorID'], $row['timestamp'],
+                $row['temperature'], $row['precipitation'], $row['windSpeed'],
+                $row['humidity'], $row['pHLevel'], $row['nutrientContent'], $row['moistureLevel']
+            );
+        }
+
+        return $weatherSoilData;
+    }
+
+    // Get crop conditions by ID
+    public function getCropConditions($cropID) {
+        // Assuming crop's best condition ID is stored in the Crop table
+        $stmt = $this->db->prepare("SELECT cropBestCondition FROM Crop WHERE cropID = ?");
+        $stmt->bind_param("i", $cropID);
+
+        $stmt->execute();
+        $stmt->bind_result($cropBestCondition);
+
+        $conditions = [];
+
+        if ($stmt->fetch()) {
+            $conditions = $this->getWeatherSoilDataByConditionID($cropBestCondition);
+        }
+
+        return $conditions;
+    }
+
     // Update crop conditions by ID
     public function updateCropConditions($cropID, $newCropConditions) {
         // TO DO: Implement logic

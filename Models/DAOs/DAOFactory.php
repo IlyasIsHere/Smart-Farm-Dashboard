@@ -43,17 +43,17 @@ class DAOFactory {
 
     // Create and return an instance of communityForumDAO
     public function createCommunityForumDAO() {
-        return new CropDAO($this->dbConnection);
+        return new CommunityForumDAO($this->dbConnection);
     }
 
     // Create and return an instance of forumPostDAO
     public function createForumPostDAO() {
-        return new CropDAO($this->dbConnection);
+        return new ForumPostDAO($this->dbConnection);
     }
 
     // Create and return an instance of weatherSoilDataDAO
     public function createWeatherSoilDataDAO() {
-        return new CropDAO($this->dbConnection);
+        return new WeatherSoilDataDAO($this->dbConnection);
     }
 }
 
