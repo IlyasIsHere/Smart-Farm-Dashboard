@@ -7,7 +7,8 @@ CREATE TABLE Farm (
   farmID INT PRIMARY KEY,
   name VARCHAR(255),
   ownerName VARCHAR(255),
-  email VARCHAR(255),
+  email VARCHAR(255) UNIQUE,
+  password VARCHAR(255),
   phoneNum VARCHAR(20),
   latitude FLOAT,
   longitude FLOAT
