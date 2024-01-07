@@ -57,7 +57,7 @@
                 </li>
                 <li>
                     <a href="/Views/fields.php">
-                        <i class="pe-7s-note2"></i>
+                        <i class="pe-7s-box2"></i>
                         <p>Fields</p>
                     </a>
                 </li>
@@ -65,18 +65,6 @@
                     <a href="/Views/crops.php">
                         <i class="pe-7s-note2"></i>
                         <p>Crops</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Views/typography.php">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Typography</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Views/icons.php">
-                        <i class="pe-7s-science"></i>
-                        <p>Icons</p>
                     </a>
                 </li>
                 <li>
