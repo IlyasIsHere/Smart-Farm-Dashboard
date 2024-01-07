@@ -13,8 +13,8 @@ class WeatherController {
             $weatherData = $this->weatherApi->getWeather($city);
 
             if ($weatherData) {
-                //include(__DIR__ . '/../Views/weather.php');
-                var_dump($weatherData);
+                include(__DIR__ . '/../Views/dashboard.php');
+                //var_dump($weatherData);
             } else {
                 echo "Invalid city name or weather data not available.";
             }
