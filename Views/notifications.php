@@ -48,25 +48,25 @@
 
             <ul class="nav">
                 <li>
-                    <a href="/Views/dashboard.php">
+                    <a href="../weatherAPItest.php">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/Views/user.php">
+                    <a href="../farmTest.php">
                         <i class="pe-7s-user"></i>
                         <p>User Profile</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/Views/fields.php">
+                    <a href="../fieldTest.php">
                         <i class="pe-7s-box2"></i>
                         <p>Fields</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/Views/crops.php">
+                    <a href="../cropTest.php">
                         <i class="pe-7s-note2"></i>
                         <p>Crops</p>
                     </a>
@@ -77,7 +77,7 @@
                         <p>Maps</p>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="/Views/notifications.php">
                         <i class="pe-7s-bell"></i>
                         <p>Notifications</p>

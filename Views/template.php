@@ -47,7 +47,7 @@
 
             <ul class="nav">
                 <li class="active">
-                    <a href="/Views/dashboard.php">
+                    <a href="../weatherAPITest.php">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
