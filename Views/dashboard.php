@@ -5,7 +5,7 @@
 	<link rel="icon" type="image/png" href="/Views/assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Light Bootstrap Dashboard by Creative Tim</title>
+	<title>Smart Farm Dashboard</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -52,7 +52,7 @@
 
             <ul class="nav">
                 <li>
-                    <a href="../weatherAPItest.php">
+                    <a href="../weatherAPITest.php">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
@@ -209,17 +209,17 @@
                         <div class="card">
 
                             <div class="header">
-                                <h4 class="title">Email Statistics</h4>
-                                <p class="category">Last Campaign Performance</p>
+                                <h4 class="title">Fields Statistics</h4>
+                                <p class="category"></p>
                             </div>
                             <div class="content">
                                 <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
 
                                 <div class="footer">
                                     <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Bounce
-                                        <i class="fa fa-circle text-warning"></i> Unsubscribe
+                                        <i class="fa fa-circle text-info"></i> Field 1
+                                        <i class="fa fa-circle text-danger"></i> Field 2
+                                        <i class="fa fa-circle text-warning"></i> Field 3
                                     </div>
                                     <hr>
                                     <div class="stats">
@@ -233,16 +233,16 @@
                     <div class="col-md-8">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Users Behavior</h4>
-                                <p class="category">24 Hours performance</p>
+                                <h4 class="title">Crops Growth</h4>
+                                <p class="category">1 month performance</p>
                             </div>
                             <div class="content">
                                 <div id="chartHours" class="ct-chart"></div>
                                 <div class="footer">
                                     <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Click
-                                        <i class="fa fa-circle text-warning"></i> Click Second Time
+                                        <i class="fa fa-circle text-info"></i> Crop 1
+                                        <i class="fa fa-circle text-danger"></i> Crop 2
+                                        <i class="fa fa-circle text-warning"></i> Crop 3
                                     </div>
                                     <hr>
                                     <div class="stats">
@@ -260,16 +260,16 @@
                     <div class="col-md-6">
                         <div class="card ">
                             <div class="header">
-                                <h4 class="title">2014 Sales</h4>
-                                <p class="category">All products including Taxes</p>
+                                <h4 class="title"></h4>
+                                <p class="category"></p>
                             </div>
                             <div class="content">
                                 <div id="chartActivity" class="ct-chart"></div>
 
                                 <div class="footer">
                                     <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Tesla Model S
-                                        <i class="fa fa-circle text-danger"></i> BMW 5 Series
+                                        <i class="fa fa-circle text-info"></i> Crop 1
+                                        <i class="fa fa-circle text-danger"></i> Crop 2
                                     </div>
                                     <hr>
                                     <div class="stats">
@@ -411,6 +411,7 @@
         </div>
 
 
+
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">
@@ -422,23 +423,23 @@
                         </li>
                         <li>
                             <a href="#">
-                                Company
+                                Farm
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                Portfolio
+                                Community Forum
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                               Blog
+                                Blog
                             </a>
                         </li>
                     </ul>
                 </nav>
                 <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                    &copy; <script>document.write(new Date().getFullYear())</script>, made with love by Ilyas Boudhaine & Ilyas Hakkou.
                 </p>
             </div>
         </footer>

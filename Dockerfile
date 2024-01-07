@@ -1,13 +1,14 @@
 FROM php:apache
 
-#COPY src /var/www/html/src
-#COPY index.php /var/www/html/
 COPY Controllers /var/www/html/
 COPY mainPageTemp /var/www/html/
 COPY Models /var/www/html/
 COPY Views /var/www/html/
-COPY test2.php /var/www/html/
 COPY test.php /var/www/html/
+COPY farmTest.php /var/www/html
+COPY cropTest.php /var/www/html
+COPY fieldTest.php /var/www/html
+COPY weatherAPITest.php /var/www/html
 
 
 RUN docker-php-ext-install pdo pdo_mysql &&\

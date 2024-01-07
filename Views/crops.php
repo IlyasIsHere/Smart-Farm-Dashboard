@@ -5,7 +5,7 @@
 	<link rel="icon" type="image/png" href="/Views/assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Light Bootstrap Dashboard by Creative Tim</title>
+	<title>Smart Farm Dashboard</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -44,7 +44,7 @@
 
             <ul class="nav">
                 <li>
-                    <a href="../weatherAPItest.php">
+                    <a href="../weatherAPITest.php">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
@@ -264,12 +264,12 @@
                         </li>
                         <li>
                             <a href="#">
-                                Company
+                                Farm
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                Portfolio
+                                Community Forum
                             </a>
                         </li>
                         <li>
@@ -280,7 +280,7 @@
                     </ul>
                 </nav>
                 <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                    &copy; <script>document.write(new Date().getFullYear())</script>, made with love by Ilyas Boudhaine & Ilyas Hakkou.
                 </p>
             </div>
         </footer>
